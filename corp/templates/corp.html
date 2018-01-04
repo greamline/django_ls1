@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+
+{% block page_content %}
+
+
+<div class="container" style="padding-top: 100px;">
+<!-- Page Content -->
+<h3 class="text-center">Заполните форму: "Кратко о компании"</h3>
+
+<form action="/c/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+   
+<!-- Позднее добавим оформление используя вывод в примере ниже   
+Род деятельности:
+<p>
+    {{ form.industrу }}
+</p> -->
+
+ 
+
+
+<!-- красивая кнопка :)
+    <p>
+<div>
+      <button onclick="window.location.href='/m'" type="button" class="btn btn-success btn-lg vcenter">Далее</button></>
+</div>
+
+</p>
+-->
+    <input type="submit" value="Далее" />
+</form>
+
+
+</div>
+
+{% endblock %}
