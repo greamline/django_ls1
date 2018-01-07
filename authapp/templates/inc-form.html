@@ -1,0 +1,36 @@
+{% load widget_tweaks %}
+
+<!--errors-->
+{% for error in form.errors %}
+<div class="alert alert-danger" role="alert">
+  {{error.label}}
+</div>
+{% endfor %}
+{% for error in form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+  {{error}}
+</div>
+{% endfor %}
+<!--end errors-->
+
+{% for field in form.visible_fields %}
+
+<div class="form-group">
+
+
+    {% if field.field.required %}
+
+    <span class="font-weight-bold">{{ field.label }} *</span>
+    {% render_field field class="form-control" %}
+
+    {% else %}
+    <span class="font-weight-light text-muted">{{ field.label }}</span>
+    {% render_field field class="form-control " %}
+    {% endif %}
+    {% if field.help_text %}
+    <small class="form-text text-muted">
+        {{ field.help_text|safe}}  <!-- new code here -->
+    </small>
+    {% endif %}
+</div>
+{% endfor %}

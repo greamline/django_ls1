@@ -1,0 +1,26 @@
+<div class="dropdown-menu" aria-labelledby="dropdownlogin">
+    <form method="POST" action="{% url 'login' %}" class="px-4 py-3">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <!--<label for="id_email">Email address</label>-->
+            <input type="email" name="email" class="form-control" id="id_email"
+                   placeholder="Email@example.com">
+        </div>
+        <div class="form-group">
+            <!--<label for="id_password">Password</label>-->
+            <input type="password" name="password" class="form-control" id="id_password"
+                   placeholder="Password">
+        </div>
+        <!--<div class="form-check">-->
+        <!--<label class="form-check-label">-->
+        <!--<input type="checkbox" class="form-check-input">-->
+        <!--Remember me-->
+        <!--</label>-->
+        <!--</div>-->
+        <button type="submit" class="btn btn-primary btn-block">Войти</button>
+    </form>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{% url 'signup' %}">Впервые тут? Регистрация</a>
+    <a class="dropdown-item" href="{% url 'password_reset' %}">Забыли пароль?</a>
+</div>
